@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Payment Log Reader</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+<h1>Payment Log Reader</h1>
+<p class="sub">Open an Excel or CSV log and read each order as a timeline: who called whom, what it means, and where it went wrong. Your file stays in your browser.</p>
+<label id="drop" for="file">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+  <b>Choose a log file</b>
+  <span>or drop it here (.xlsx or .csv)</span>
+</label>
+<input id="file" type="file" accept=".xlsx,.xls,.csv">
+<div id="tools">
+  <section id="sum"></section>
+  <div class="toolbar">
+    <select id="sheet" title="Order (sheet)"></select>
+    <input id="q" type="search" placeholder="Search status, URL, event, response text">
+    <div class="seg" id="seg"><button data-v="" class="on">All</button><button data-v="setup">Setup</button><button data-v="pull">Pull</button><button data-v="push">Push</button></div>
+    <input id="ft" type="hidden" value="">
+    <select id="fs"><option value="">All statuses</option></select>
+    <label class="chk"><input id="col" type="checkbox" checked>Collapse repeats</label>
+    <label class="chk"><input id="int" type="checkbox">Internal events</label>
+  </div>
+  <div class="count" id="count"></div>
+  <div id="list"></div>
+</div>
+</main>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
